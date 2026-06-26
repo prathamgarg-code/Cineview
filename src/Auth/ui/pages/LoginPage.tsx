@@ -1,6 +1,19 @@
-export const LoginPage = () => (
-    <main className="p-8">
-      <h1 className="text-2xl font-semibold">Login</h1>
-      <p className="mt-2 text-neutral-500">Placeholder — Auth milestone</p>
+import { observer } from 'mobx-react-lite'
+import { LoginForm } from '../components/LoginForm'
+import { useLoginController } from '../controllers/useLoginController'
+
+export const LoginPage = observer(() => {
+  const { fieldErrors, loginError, loginStatus, submitLogin } =
+    useLoginController()
+
+  return (
+    <main className="flex min-h-screen items-center justify-center bg-neutral-50 p-4">
+      <LoginForm
+        fieldErrors={fieldErrors}
+        loginError={loginError}
+        loginStatus={loginStatus}
+        onSubmit={submitLogin}
+      />
     </main>
   )
+})
