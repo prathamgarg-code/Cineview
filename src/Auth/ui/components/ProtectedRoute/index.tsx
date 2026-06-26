@@ -12,6 +12,8 @@ export const ProtectedRoute = observer(() => {
     const redirect = encodeURIComponent(
       `${location.pathname}${location.search}`,
     )
+
+  
     return <Navigate to={`${LOGIN_PATH}?redirect=${redirect}`} replace />
   }
 

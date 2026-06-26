@@ -1,7 +1,6 @@
 import {
     createContext,
     useContext,
-    useEffect,
     useMemo,
     type ReactNode,
   } from 'react'
@@ -13,9 +12,6 @@ import {
   export const AuthStoreProvider = ({ children }: { children: ReactNode }) => {
     const store = useMemo(() => new AuthStore(new LocalAuthService()), [])
   
-    useEffect(() => {
-      store.initializeSession()
-    }, [store])
   
     return (
       <AuthStoreContext.Provider value={store}>

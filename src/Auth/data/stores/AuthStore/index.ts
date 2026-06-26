@@ -16,6 +16,7 @@ export class AuthStore {
 
   constructor(private authService: AuthService) {
     makeAutoObservable(this)
+    this.initializeSession()
   }
 
   initializeSession(): void {
