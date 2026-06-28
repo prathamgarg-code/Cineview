@@ -13,7 +13,7 @@ export const ProtectedRoute = observer(() => {
       `${location.pathname}${location.search}`,
     )
 
-  
+    
     return <Navigate to={`${LOGIN_PATH}?redirect=${redirect}`} replace />
   }
 
